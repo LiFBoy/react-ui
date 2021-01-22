@@ -1,0 +1,144 @@
+.search-result-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+
+  .search-result-tab {
+    height: 100%;
+
+    .ant-tabs-content-holder {
+      overflow: auto;
+    }
+  }
+
+  .am-tabs {
+    .am-tabs-default-bar-tab-active {
+      color: #1786ec;
+    }
+  }
+
+  .search-result-tips {
+    color: #9d9da1;
+    display: inline-block;
+    background-color: #edeff1;
+    font-size: 13px;
+    padding: 10px;
+
+    .search-result-tips-icon {
+      color: rgba(23, 133, 236, 1);
+    }
+  }
+
+  .search-result-mobile-box {
+    // padding: 0 8px;
+    // height: 330px;
+    overflow: auto;
+
+    .search-result-group-title {
+      height: 30px;
+      line-height: 30px;
+      border-bottom: 1px solid #ececec;
+    }
+
+    .search-result-group-item {
+      // display: flex;
+      // justify-content: space-between;
+      // // padding: 4px;
+      // box-sizing: border-box;
+      // // margin: 8px 0;
+      // position: relative;
+      // right: 0;
+      // background-color: #fff;
+      display: flex;
+      align-items: center;
+
+      .select-user-icon-user {
+        margin-top: 3px;
+        margin-right: 6px;
+        flex-shrink: 0;
+      }
+
+      .select-user-icon-dept {
+        margin-top: 3px;
+        margin-right: 6px;
+        flex-shrink: 0;
+      }
+
+      .select-user-icon-org {
+        margin-top: 3px;
+        margin-right: 6px;
+        flex-shrink: 0;
+      }
+
+      .select-user-icon-tag {
+        margin-top: 3px;
+        margin-right: 6px;
+        flex-shrink: 0;
+      }
+
+      .search-result-item {
+        display: flex;
+        // float: left;
+        width: 100%;
+      }
+
+      // .search-result-item-icon {
+      //   // float: left;
+      // }
+
+      .search-result-item-detail {
+        display: inline-block;
+        width: 88%;
+
+        .search-result-item-title {
+          font-size: 16px;
+          width: 200px;
+          font-weight: 400;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .search-result-item-des {
+          font-size: 12px;
+          white-space: nowrap;
+          font-weight: 400;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 240px;
+          color: #777;
+        }
+      }
+
+      .checkbox-wrap {
+        padding-right: 12px;
+        height: 42px;
+        line-height: 42px;
+      }
+    }
+  }
+
+  .overflow-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.nbugs-tree-result-empty {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.treeFooter {
+  padding: 9px 0;
+  white-space: break-spaces;
+  color: #959595;
+  font-size: 12px;
+}

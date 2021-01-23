@@ -1,3 +1,12 @@
-*.js
-doc-comps
-components/**/demo
+build/
+dist/
+esm/
+lib/
+coverage/
+test/
+node_modules/
+gulpfile.js
+**/*.min.js
+**/*-min.js
+*.tpl
+*.bak

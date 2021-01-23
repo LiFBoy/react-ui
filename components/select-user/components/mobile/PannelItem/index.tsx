@@ -60,25 +60,6 @@ const PannelItem: React.FunctionComponent<PropType> = (props: PropType) => {
   // 获取treeContext
   const treeContext = useContext(TREE_CONTEXT);
   const { treeState, updateCheckedNode, clear, resetUserCount } = treeContext;
-  // const findNodeByKey = (key: string) => {
-  //   const root = breadcrumb.length > 0 ? treeState.treeData : accordion;
-  //   const stack = [...root];
-  //   while (stack.length) {
-  //     const node = stack.pop();
-
-  //     if (node.key === key) {
-  //       return node;
-  //     } else {
-  //       if (node.children) {
-  //         for (const child of node.children) {
-  //           stack.push(child);
-  //         }
-  //       }
-  //     }
-  //   }
-  //   return null;
-  // };
-
   // 树节点选中事件
   const onCheck = (node: any) => {
     const item: ItreeItem = {

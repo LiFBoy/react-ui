@@ -17,6 +17,7 @@
 /lib
 /esm
 /.docz
+/.storybook
 /doc-site
 /types
 

@@ -80,10 +80,12 @@ function eslint() {
 }
 
 // 串行执行编译脚本任务（cjs,esm） 避免环境变量影响
-const buildScripts = gulp.series(compileCJS, compileESM);
+// const buildScripts = gulp.series(compileCJS, compileESM);
 
 // 整体并行执行任务
-const build = gulp.parallel(buildScripts, copyLess);
+// const build = gulp.parallel(eslint, buildScripts, copyLess);
+
+const build = gulp.series(gulp.parallel(eslint), compileCJS, compileESM, gulp.parallel(copyLess));
 exports.build = build;
 exports.eslint = eslint;
 exports.stylelint = stylelint;

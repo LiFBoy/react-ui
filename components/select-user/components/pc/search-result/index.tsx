@@ -3,13 +3,7 @@ import { Tabs, Checkbox, Typography, Space } from 'antd';
 import { InfoCircleFilled } from '@ant-design/icons';
 import { TREE_CONTEXT } from '../../../select-user';
 import { get } from 'lodash';
-import {
-  TagIcon,
-  UserIcon,
-  DeptIcon,
-  OrgIcon,
-  GroupIcon
-} from '../../tree-node-icon';
+import { TagIcon, UserIcon, DeptIcon, OrgIcon, GroupIcon } from '../../tree-node-icon';
 import styles from './index.less';
 
 const { Text } = Typography;
@@ -30,7 +24,7 @@ const SHOW_TAB_LIST_ITEM_MAP: any = {
   group: '下属组织',
   innerContacts: '内部通迅录',
   schoolContacts: '家校通迅录',
-  tags: '标签'
+  tags: '标签',
 };
 
 // 搜索结果展示
@@ -42,19 +36,13 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
     multiple,
     showTabList,
     selectTypeList,
-    selectType
+    selectType,
   } = props;
 
   // 获取treeContext
   const treeContext = useContext(TREE_CONTEXT);
   const { treeState, updateCheckedNode, resetUserCount, clear } = treeContext;
-  const {
-    userInfoList,
-    deptInfoList,
-    orgInfoList,
-    tagInfoList,
-    groupInfoList
-  } = treeState;
+  const { userInfoList, deptInfoList, orgInfoList, tagInfoList, groupInfoList } = treeState;
 
   // 判断搜索字段是否为纯数字
   const allNumber = /^([0-9])+$/.test(search);
@@ -62,9 +50,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
   const renderSearchHint = (list: Array<any>) => {
     if (list && list.length <= 10) {
       return (
-        <div className={styles.treeFooter}>
-          仅展示前 10 个搜索结果，请输入更精确的搜索内容
-        </div>
+        <div className={styles.treeFooter}>仅展示前 10 个搜索结果，请输入更精确的搜索内容</div>
       );
     }
   };
@@ -80,7 +66,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
           name: item.userName,
           type: item.type,
           contactType: item.contactType,
-          deptName: get(item.userDeptList, [0, 'deptName'])
+          deptName: get(item.userDeptList, [0, 'deptName']),
         };
         break;
       case 'ORG':
@@ -89,7 +75,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
           key: item.orgId,
           name: item.orgName,
           type: item.type,
-          contactType: item.contactType
+          contactType: item.contactType,
         };
         break;
       case 'GROUP':
@@ -98,7 +84,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
           key: item.groupId,
           name: item.groupName,
           type: item.type,
-          contactType: item.contactType
+          contactType: item.contactType,
         };
         break;
       case 'DEPT':
@@ -107,7 +93,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
           key: item.deptId,
           name: item.deptName,
           type: item.type,
-          contactType: item.contactType
+          contactType: item.contactType,
         };
         break;
       case 'TAG':
@@ -116,7 +102,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
           key: item.tagCode,
           name: item.tagName,
           type: item.type,
-          contactType: item.contactType
+          contactType: item.contactType,
         };
         break;
     }
@@ -181,9 +167,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
       <div className="search-result-box">
         {userList.length > 0 ? (
           <React.Fragment>
-            <div className="search-result-group-title">
-              相关人员({userList.length})
-            </div>
+            <div className="search-result-group-title">相关人员({userList.length})</div>
             {userList.map((user, index) => {
               let checked = false;
 
@@ -206,12 +190,8 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
                       return (
                         <div className="search-result-item-des" key={index}>
                           {
-                            <div
-                              className="overflow-ellipsis"
-                              title={deptItem.deptName}
-                            >
-                              {user.contactType === '3' ? '类别' : '部门'}:{' '}
-                              {deptItem.deptName}
+                            <div className="overflow-ellipsis" title={deptItem.deptName}>
+                              {user.contactType === '3' ? '类别' : '部门'}: {deptItem.deptName}
                             </div>
                           }
                         </div>
@@ -220,10 +200,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
                     {user.contactType === '3' ? (
                       <div className="search-result-item-des">
                         {
-                          <div
-                            className="overflow-ellipsis"
-                            title={user.orgName}
-                          >
+                          <div className="overflow-ellipsis" title={user.orgName}>
                             学校: {user.orgName}
                           </div>
                         }
@@ -248,9 +225,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
         )}
         {deptList.length > 0 ? (
           <React.Fragment>
-            <div className="search-result-group-title">
-              相关部门({deptList.length})
-            </div>
+            <div className="search-result-group-title">相关部门({deptList.length})</div>
             {deptList.map((dept: any, index: number) => {
               let checked = false;
 
@@ -293,9 +268,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
         )}
         {orgList.length > 0 ? (
           <React.Fragment>
-            <div className="search-result-group-title">
-              相关组织({orgList.length})
-            </div>
+            <div className="search-result-group-title">相关组织({orgList.length})</div>
             {orgList.map((org: any, index: number) => {
               let checked = false;
               for (const item of orgInfoList) {
@@ -316,10 +289,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
                     </div>
                   </div>
                   <div className="checkbox-wrap">
-                    <Checkbox
-                      checked={checked}
-                      onChange={() => onCheckBoxChange(org, org.type)}
-                    />
+                    <Checkbox checked={checked} onChange={() => onCheckBoxChange(org, org.type)} />
                   </div>
                 </div>
               );
@@ -331,9 +301,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
         )}
         {groupList.length > 0 ? (
           <React.Fragment>
-            <div className="search-result-group-title">
-              相关分组({groupList.length})
-            </div>
+            <div className="search-result-group-title">相关分组({groupList.length})</div>
             {groupList.map((group: any, index: number) => {
               let checked = false;
 
@@ -348,10 +316,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
                   <GroupIcon />
                   <div className="search-result-item-detail">
                     <div className="search-result-item-title">
-                      <div
-                        className="overflow-ellipsis"
-                        title={group.groupName}
-                      >
+                      <div className="overflow-ellipsis" title={group.groupName}>
                         {group.groupName}
                       </div>
                     </div>
@@ -372,9 +337,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
         )}
         {tagList.length > 0 ? (
           <React.Fragment>
-            <div className="search-result-group-title">
-              相关标签({tagList.length})
-            </div>
+            <div className="search-result-group-title">相关标签({tagList.length})</div>
             {tagList.map((tag: any, index: number) => {
               let checked = false;
 
@@ -394,10 +357,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
                     </div>
                   </div>
                   <div className="checkbox-wrap">
-                    <Checkbox
-                      checked={checked}
-                      onChange={() => onCheckBoxChange(tag, tag.type)}
-                    />
+                    <Checkbox checked={checked} onChange={() => onCheckBoxChange(tag, tag.type)} />
                   </div>
                 </div>
               );
@@ -414,9 +374,7 @@ const SearchResult: React.FunctionComponent<PropType> = (props: PropType) => {
     return allNumber && selectType === 'user' && search.length < 8 ? (
       <div className="search-result-tips">
         {/* <InfoCircleFilled className="search-result-tips-icon" /> */}
-        <Text type="secondary">
-          为保证通讯录安全，手机号码输入超过8位后才能展示相关的人员结果
-        </Text>
+        <Text type="secondary">为保证通讯录安全，手机号码输入超过8位后才能展示相关的人员结果</Text>
       </div>
     ) : null;
   }, [allNumber, selectType, search]);
